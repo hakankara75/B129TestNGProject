@@ -19,63 +19,101 @@ public class Day22_TesNGAnnotations {
      @AfterMethod: Herbir @Test  annotation'ı sonrası bir kez çalışır.(JUnit @After annotation'ı gibi)
 
       */
+ /*      ------------
+    Test NG'de  test methodları alfabetik sıraya göre çalışır.
+    @Test(priority = 1) Test casleride öncelikli çalıştırma için kullanuılır.
+    Not: priority kullanılmayan testlerin varsıyalım priority değeri 0'dır
+            ------------
+    @Ignore: @Test caseleri atlamak için kullanılır
+    @Test(enable=false) @Test caseleri kullanıma kapatmak için kullanılır
+         */
+
     @BeforeSuite
-    public void beforeSuite(){
+    public void beforeSuite() {
         System.out.println("Before Suite");
     }
+
     @AfterSuite
-    public void afterSuite(){
+    public void afterSuite() {
         System.out.println("After Suite");
     }
-    @BeforeClass
-    public void beforeClass(){
-        System.out.println("Before Class");
-    }
-    @AfterClass
-    public void afterClass(){
-        System.out.println("After Class");
-    }
-    @BeforeMethod
-    public void beforeMethod(){
-        System.out.println("Before Method");
-    }
-    @AfterMethod
-    public void afterMethod(){
-        System.out.println("After Method");
-    }
+
     @BeforeTest
-    public void beforeTest(){
+    public void beforeTest() {
         System.out.println("Before Test");
     }
+
     @AfterTest
-    public void afterTest(){
+    public void afterTest() {
         System.out.println("After Test");
     }
-    @BeforeGroups
-    public void beforeGroups(){
+
+    @BeforeGroups(groups = "regression test")
+    public void beforeGroups() {
         System.out.println("Before Groups");
     }
-    @AfterGroups
-    public void afterGroups(){
+
+    @AfterGroups(groups = "regression test")
+    public void afterGroups() {
         System.out.println("After Groups");
     }
+
+    @BeforeClass
+    public void beforeClass() {
+        System.out.println("Before Class");
+    }
+
+    @AfterClass
+    public void afterClass() {
+        System.out.println("After Class");
+    }
+
+    @BeforeMethod
+    public void beforeMethod() {
+        System.out.println("Before Method");
+    }
+
+    @AfterMethod
+    public void afterMethod() {
+        System.out.println("After Method");
+    }
+
     @Test
-    public void test01(){
+    public void test01() {
         System.out.println("Test 1");
-    } @Test
-    public void test02(){
+    }
+
+    @Test
+    public void test02() {
         System.out.println("Test 2");
     }
-    @Test(groups = "smoke")
-    public void test03(){
+
+    @Test(groups = "regression test")
+    public void test03() {
         System.out.println("Test 3");
     }
+
+    @Ignore
     @Test
-    public void test04(){
+    public void test04() {
+        //Çalışmam devam ediyor...
         System.out.println("Test 4");
     }
-    @Test(groups = "smoke")
-    public void test05(){
+
+    @Test(groups = "regression test", priority = 1)
+//En son çalışır==> Çünkü diğer testlerin default priority değeri 0'dır.
+    public void test05() {
         System.out.println("Test 5");
     }
+
+    @Test(priority = -1)//İlk çalışır==> Çünkü priority değeri en düşüktür.
+    public void test06() {
+        System.out.println("Test 6");
+    }
+
+    @Test(enabled = false)
+    public void test07() {
+        System.out.println("Test 7");
+    }
+
 }
