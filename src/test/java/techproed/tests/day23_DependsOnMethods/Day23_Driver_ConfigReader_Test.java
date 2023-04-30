@@ -1,4 +1,4 @@
-package techproed.tests;
+package techproed.tests.day23_DependsOnMethods;
 
 import org.testng.annotations.Test;
 import techproed.utilities.ConfigReader;

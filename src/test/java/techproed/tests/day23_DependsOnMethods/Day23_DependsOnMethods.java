@@ -1,4 +1,4 @@
-package techproed.tests;
+package techproed.tests.day23_DependsOnMethods;
 
 import org.testng.annotations.Test;
 
@@ -8,9 +8,9 @@ public class Day23_DependsOnMethods{
     /*
   Test NG'de @Test metotları birbirinden bağımsız çalışır.
   Methodları bağımlı çalıştırmak istiyorsak "dependsOnMethods" parametresi kullanılır.
-  Aşağıda seachTest() methodu homePageTest() methoduna bağlıdır.
-  Eğer homePageTest() çalışırsa seachTest() de çalışır.
-  Eğer homePageTest() fail olursa seachTest() çalışmaz, "ignore" edilir.
+  Aşağıda searchTest() methodu homePageTest() methoduna bağlıdır.
+  Eğer homePageTest() çalışırsa searchTest() de çalışır.
+  Eğer homePageTest() fail olursa searchTest() çalışmaz, "ignore" edilir.
    */
     @Test
     public void homePage() {
