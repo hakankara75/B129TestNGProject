@@ -8,6 +8,8 @@ import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
 import techproed.utilities.ReusableMethods;
 
+import static org.testng.Assert.assertTrue;
+
 public class C05_DataProvider {
 
 
@@ -33,10 +35,10 @@ public class C05_DataProvider {
         blueRentalPage.login.click();
         blueRentalPage.email.sendKeys(email, Keys.TAB,password,Keys.ENTER);
         ReusableMethods.bekle(2);
+
+        //giris yaptiginş dogrula
+        assertTrue(blueRentalPage.verify.isDisplayed()) ;
         Driver.closeDriver();
-        /*
-        C05 class'ındaki task için her kullanıcı için doğrulama yapalım
-        En son sayfayı kapatalım
-         */
+
     }
 }

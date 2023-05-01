@@ -13,9 +13,11 @@ public class C01_ExcelTest1 {
         System.out.println(excelUtils.getCellData(1, 0));
         String email = excelUtils.getCellData(1,0);
         String password = excelUtils.getCellData(1,1);
-        System.out.println(email+" || " + password);
+        System.out.println("email: "+email+" || " +"password: "+ password);
 
-
+        System.out.println("kac sutun var: "+excelUtils.columnCount());
 
     }
+
+
 }

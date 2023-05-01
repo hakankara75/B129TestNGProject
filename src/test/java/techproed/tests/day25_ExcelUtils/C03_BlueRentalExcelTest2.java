@@ -33,6 +33,7 @@ BlueRentalCar sayfasina gidip login olalim?
             blueRentalPage.login.click();
             blueRentalPage.email.sendKeys(email, Keys.TAB,password,Keys.ENTER);
             assertTrue(blueRentalPage.verify.isDisplayed()) ; //giris yaptigimi dogruladim
+            //assert blueRentalPage.verify.isDisplayed();  java metodu
             ReusableMethods.bekle(2);
             blueRentalPage.logOut1.click(); //log out yapacagim
             blueRentalPage.logOut2.click(); //log out yaptim

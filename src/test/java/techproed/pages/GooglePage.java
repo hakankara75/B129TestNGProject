@@ -6,9 +6,9 @@ import org.openqa.selenium.support.PageFactory;
 import techproed.utilities.Driver;
 
 public class GooglePage {
-    public void Google(){
+    public  GooglePage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
-    @FindBy(id = "APjFqb")
+    @FindBy(xpath = "//*[@name='q']")
     public WebElement aramaKutusu;
 }

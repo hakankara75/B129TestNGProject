@@ -8,40 +8,41 @@ import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
 import techproed.utilities.ReusableMethods;
 
-import java.security.Key;
-
 public class C04_DataProvider {
     /*
-    -- DataProvider , bir cok veriyi test caselere loop kullanmadan aktarmak icin kullanilir.
-     TestNG'den gelen bir ozelliktir.
-     --2 boyutlu bir object Array return eder.
-    -- DDT(Data Driven Testing)icin kullanilir yani birden fazla veriyi test caselerde ayni anda
-     kullanmak icin kullanilir.
-     Kullanımı için @Test notasyonundan sonra parametre olarak dataprovider yazılır ve String bir isim belirtilir.
-    Bu belirttiğimiz isimle @DataProvider notasyonu ile bir method oluşturulur.
-      */
-
-    @Test(dataProvider="urunler")
-    public void testName(String dataProvider) {//Data providerdaki verileri alabilmek icin Test methodumuza String bir parametre atamasi yapariz.
-        System.out.println(dataProvider);
-
-
+    -DataProvider, bir çok veriyi test caselere loop kullanmadan aktarmak için kullanılır.
+    TestNG den gelen bir özelliktir. 2 boyutlu bir Object Array return eder.
+     DDT(Data Driven Testing) için kullanılır. Yani birden fazla veriyi test case'lerde aynı anda kullanmak
+    için kullanılır
+     Kullanımı için @Test notasyonundan sonra paremetre olarak dataprovider yazilir ve String bir isim
+    belirtilir. Bu belittiğimiz isimle @DataProvider notasyonu ile bir method oluşturulur
+     */
+    /*
+    Eğer farklı bir test methodu için aynı dataProvider methodu kullanılacaksa
+    @DataProvider(name = "googleTest") şeklinde dataprovider notasyonundan sonra name paremetresine yeni olusturduğumuz
+    methodun adını yazarız
+     */
+    @Test(dataProvider = "googleTest")
+    public void testdataprovider(String data) {//DataP.'daki verileri alabilmek için
+        // Test methodumuza String bir parametre ataması yaparız
+        System.out.println(data);
     }
-    @DataProvider (name="googleTest")
+    @DataProvider(name = "googleTest")
     public static Object[][] urunler() {
-        return new Object[][]{{"Volvo"}, {"Mercedes"},{"Audi"}, {"Honda"}, {"Toyota"}, {"Opel"}, {"BMW"}};
+        return new Object[][]{{"Volvo"},{"Mercedes"},{"Audi"},{"Honda"},{"Toyota"},{"Opel"},{"BMW"}};
     }
-    @Test (dataProvider="googleTest")
+    @Test(dataProvider = "googleTest")
     public void googleTest(String araclar) {
-        //google sayfasina gidiniz
-        Driver.getDriver().get(ConfigReader.getProperty("google_Url"));
+        //Google sayfasına gidiniz
+        //Driver.getDriver().get("https://google.com");
+        Driver.getDriver().get(ConfigReader.getProperty("googleUrl"));
+        //{"Volvo"},{"Mercedes"},{"Audi"},{"Honda"},{"Toyota"},{"Opel"},{"BMW"} araçları aratınız
+        GooglePage googlePage = new GooglePage();
+        googlePage.aramaKutusu.sendKeys(araclar);
         ReusableMethods.bekle(2);
+        googlePage.aramaKutusu.sendKeys(Keys.ENTER);
 
-        //{"Volvo"}, {"Mercedes"},{"Audi"}, {"Honda"}, {"Toyota"}, {"Opel"}, {"BMW"} marka araclari aratiniz
-       GooglePage googlePage= new GooglePage();
-       googlePage.aramaKutusu.sendKeys(araclar, Keys.ENTER);
-
-        //Her aratmadan sonra sayfa resmi aliniz
+        //Her aratmadan sonra sayfa resmi alınız
         ReusableMethods.tumSayfaScreenShoot();
         ReusableMethods.bekle(2);
         Driver.closeDriver();
