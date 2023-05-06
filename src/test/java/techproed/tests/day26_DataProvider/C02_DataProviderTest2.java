@@ -17,7 +17,7 @@ public class C02_DataProviderTest2 {
         System.out.println("Kullanıcı Adı: " + ad+ ", Şifre: " + sifre);
     }
 
-    @Test(dataProvider= "customerData", dataProviderClass = DataProviderUtils.class)
+    @Test(dataProvider= "customerData", dataProviderClass = DataProviderUtils.class, groups = "RegressionGroup1")
     public void test3(String username, String password) {
 
         System.out.println("Kullanıcı Adı: " + username+ ", Şifre: " + password);
