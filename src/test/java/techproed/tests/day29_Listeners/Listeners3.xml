@@ -9,7 +9,7 @@
     EmailReporter sectik.
     -->
     <listeners>
-        <listener class-name="techproed.utilities.Listeners"/>
+        <listener class-name="N11.utilities.Listeners"/>
     </listeners>
     <!-- Listeners'i .xml file ile farklı method ve classlar için kullanmak istersek
     suite tag'indan sonra listeners tag'i sonrasında listener tag'i ile utilities altında oluşturduğumuz Listeners class'inin

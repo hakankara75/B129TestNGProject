@@ -1,4 +1,4 @@
-package Tests.day01_practice;
+package techproed.tests.day01_practice;
 
 import org.testng.annotations.Test;
 import techproed.pages.FacebookPage;

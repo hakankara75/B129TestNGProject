@@ -1,4 +1,4 @@
-package Tests.day01_practice;
+package techproed.tests.day01_practice;
 // amazon isimli bir test methodu olusturunuz. Ve amazona gidiniz
 // bestbuy isimli bir test methodu olusturunuz. Ve bestbuy'a gidiniz
 // techproeducation isimli bir test methodu olusturunuz. Ve techproeducation'a gidiniz

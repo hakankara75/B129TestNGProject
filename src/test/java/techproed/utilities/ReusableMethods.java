@@ -1,8 +1,5 @@
 package techproed.utilities;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,10 +17,6 @@ public class ReusableMethods {
     //TestBase class'ından Obje oluşturmanın önüne geçilmesi için abstract yapılabilir
     //Orn: TestBase base = new TestBase()
     //Bu class'a extends ettiğimiz test classlarından ulaşabiliriz
-
-    protected static ExtentReports extentReports; //Raporlamayı başlatır
-    protected  static ExtentHtmlReporter extentHtmlReporter;//Raporu HTML formatında düzenler
-    protected static ExtentTest extentTest;//Tüm test aşamalarında extentTest objesi ile bilgi ekleriz
 
     //HARD WAIT METHOD
     public static void bekle(int saniye){
@@ -157,4 +150,29 @@ public class ReusableMethods {
 //             document.querySelector("#example").value; -> CSS DEGERI KULLANILABILIR
     }
 
+
+    public static String getScreenshot(String name) throws IOException {
+        // naming the screenshot with the current date to avoid duplication
+        String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        // TakesScreenshot is an interface of selenium that takes the screenshot
+        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
+        File source = ts.getScreenshotAs(OutputType.FILE);
+        // full path to the screenshot location
+        String target = System.getProperty("user.dir") + "/target/Screenshots/" + name + date + ".png";
+        File finalDestination = new File(target);
+        // save the screenshot to the path given
+        FileUtils.copyFile(source, finalDestination);
+        return target;
+    }
+    //========Switching Window=====//
+    public static void switchToWindow(String targetTitle) {
+        String origin = Driver.getDriver().getWindowHandle();
+        for (String handle : Driver.getDriver().getWindowHandles()) {
+            Driver.getDriver().switchTo().window(handle);
+            if (Driver.getDriver().getTitle().equals(targetTitle)) {
+                return;
+            }
+        }
+        Driver.getDriver().switchTo().window(origin);
+    }
 }

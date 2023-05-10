@@ -1,4 +1,4 @@
-package Tests.day01_practice;
+package techproed.tests.day01_practice;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
