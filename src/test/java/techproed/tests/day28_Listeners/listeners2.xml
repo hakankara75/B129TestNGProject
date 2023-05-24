@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
 
     <listeners><!-- Bu kısım ile test suitimizi listeners class ile ilişkilendiriyoruz. -->
-        <listener class-name="techproed.utilities.ListenersRetryAnalyzer"></listener>
+        <listener class-name="techproed.utilities.Listeners"></listener>
     </listeners>
 
     <test verbose="2" preserve-order="true"

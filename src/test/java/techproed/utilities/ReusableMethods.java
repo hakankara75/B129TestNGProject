@@ -2,6 +2,7 @@ package techproed.utilities;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -129,6 +130,13 @@ public class ReusableMethods {
         js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
     }
 
+
+    //elemente JavascriptExecutor ile string gonderir(java sendkey() ile ayni)
+    public static void sendKeyWithJavaScript(String string, WebElement webElement) {
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();//Casting
+        jse.executeScript("arguments[0].value = '"+string+"';", webElement);
+
+    }
     //bu metot ile sayfayi en yukari kaydirabilirim
     public static void scrollTopByJavaScript(){
         JavascriptExecutor js= (JavascriptExecutor) Driver.getDriver();
@@ -174,5 +182,19 @@ public class ReusableMethods {
             }
         }
         Driver.getDriver().switchTo().window(origin);
+    }
+
+    /**
+     * Bu metot Action class kullanarak bir webelementin ustune gidip bekler
+     * @param element yerine webelement'in locate koyulmalidir
+     */
+    public static void moveToElementWithAction(WebElement element){
+        Actions action = new Actions(Driver.getDriver());
+        action.moveToElement(element).perform();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
