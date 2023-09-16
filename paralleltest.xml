@@ -4,7 +4,7 @@
     <test verbose="2" preserve-order="true"
           name="C:/Users/Hakan Batirhan.DESKTOP-KA8SOKR/IdeaProjects/B129TestNGProject/src/test/java/techproed/tests/day27_paralleltest">
         <classes>
-            <class name="techproed.tests.day27_paralleltest.C01_WebTables">
+            <class name="general.tests.day27_paralleltest.C01_WebTables">
                 <methods>
                     <include name="table1Print"/>
                     <include name="satir3VerileriPrint"/>
@@ -13,14 +13,14 @@
                     <include name="printDataTest"/>
                 </methods>
             </class>
-            <class name="techproed.tests.day27_paralleltest.C02_DropDown">
+            <class name="general.tests.day27_paralleltest.C02_DropDown">
                 <methods>
                     <include name="test01"/>
                     <include name="test02"/>
                     <include name="test03"/>
                 </methods>
             </class>
-            <class name="techproed.tests.day27_paralleltest.C03_Actions">
+            <class name="general.tests.day27_paralleltest.C03_Actions">
                 <methods>
                     <include name="actions"/>
                 </methods>

@@ -9,7 +9,7 @@
         </groups>
 
         <packages>
-            <package name="techproed.*" />
+            <package name="general.*" />
         </packages>
 
     </test>

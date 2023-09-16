@@ -5,8 +5,8 @@
             <!-- name değeri geçerli bir package olmalıdır-->
             <!-- package root dosyasından başlamalıdır==> "techproed"-->
             <!-- Çalıştırmadan önce saveAll yada ctrl+s yapınız-->
-            <package name="techproed.tests.day24_Properties_Pages.SmokeTest" />
-            <package name="techproed.tests.day26_DataProvider" />
+            <package name="general.tests.day24_Properties_Pages.SmokeTest" />
+            <package name="general.tests.day26_DataProvider" />
         </packages>
     </test>
 </suite>
