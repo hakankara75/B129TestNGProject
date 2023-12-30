@@ -46,6 +46,10 @@ public class C03_SoftAssert extends TestBase {
         // Sonuc yazısının "Nutella" icerdigini test edin
         softAssert.assertTrue(sonucYazisi.getText().contains("Nutella"), "sonuc yazisi Nutella icermiyor");
 
+        WebElement element=driver.findElement(By.cssSelector("span[class='a-size-medium-plus a-color-base a-text-bold']"));
+        String elementText= element.getText();
+        softAssert.assertTrue(elementText.contains("hakan"), "Arama sonucu hakan kelimesini içeriyor");
+
         // test islemlerini softAsser ile yapınız ve hatalar icin mesaj versin
         softAssert.assertAll(); //hata varsa bize bildirmesi icin kod. bu olmazsa hepsi pass gorunur, hata mesaji yazmaz
 

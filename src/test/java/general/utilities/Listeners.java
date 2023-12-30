@@ -1,10 +1,13 @@
 package general.utilities;
 
+import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.*;
 import org.testng.annotations.ITestAnnotation;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.time.Duration;
 
 import static general.utilities.ReusableMethods.tumSayfaScreenShoot;
 
@@ -55,5 +58,8 @@ olma durumunda listeners sınıfı retry methodunu kullanarak istediğimiz kadar
  */
         System.out.println(annotation);
 
+        ChromeOptions chromeOptions=new ChromeOptions();
+        chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
+        chromeOptions.setPageLoadTimeout(Duration.ofSeconds(15));
     }
 }
